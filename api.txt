@@ -1,0 +1,26 @@
+[
+  {
+    coord: { lon: 73.8553, lat: 18.5196 },
+    weather: [ [Object] ],
+    base: 'stations',
+    main: {
+      temp: 301.33,
+      feels_like: 300.17,
+      temp_min: 301.33,
+      temp_max: 301.33,
+      pressure: 1017,
+      humidity: 25,
+      sea_level: 1017,
+      grnd_level: 956
+    },
+    visibility: 10000,
+    wind: { speed: 0.83, deg: 215, gust: 2.9 },
+    clouds: { all: 20 },
+    dt: 1677946367,
+    sys: { country: 'IN', sunrise: 1677892920, sunset: 1677935472 },
+    timezone: 19800,
+    id: 1259229,
+    name: 'Pune',
+    cod: 200
+  }
+]

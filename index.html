@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+           
+        }
+        /* #0463ca */
+        .container{
+            text-align: center;
+            background-color: #0487e2;
+            width: 25%;
+            position: relative;
+            left: 510px;
+            top: 169px;
+            background-image: url("evening.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* display: flex;
+            justify-content: center;
+            columns: auto; */
+            
+        }
+        #date{
+            margin-top: 17px;
+        }
+        #temp{
+            margin-top: 17px;
+            padding-bottom: 30px;
+        }
+        .location{
+            padding-top:30px;
+        }
+        #weatherIcon{
+            padding-top: 30px;
+        }
+        /* .grid-container{
+            display: grid;
+            grid-template-columns: auto auto;
+        } */
+    </style>
+</head>
+<body>
+     <div class="container">
+      <div id="weatherIcon">
+        <i class="fa-solid fa-sun fa-5x" style="color:#FFCC33" ></i>
+      </div>
+      <div class="grid-container">
+        <!-- <div><i class="uil uil-map-marker fa-2x"></i></div>
+        <div><h2 class="location">PUNE,IN</h2></div> -->
+        <i class="uil uil-map-marker fa-3x location"></i>
+        <h2>{%city%},{%country%}</h2>
+      </div>
+      <div id="date">
+        <p></p>
+      </div>
+      <div id="temp">
+         <h2 style="margin-bottom: 12px;">{%temp%} °C</h2>
+         <p>min {%mintemp%} °C | max {%maxtemp%} °C</p>
+      </div>
+     </div>
+     
+
+     <script src="https://kit.fontawesome.com/e75688e2e6.js" crossorigin="anonymous"></script>
+     <script>
+        const status="{%icon%}";
+        // console.log(status);
+        if(status=="Sunny"){
+            document.getElementById("weatherIcon").innerHTML="<i class='fa-solid fa-sun fa-5x' style='color:#FFCC33'></i>";
+        }
+        else if(status=="Rainy"){
+            document.getElementById("weatherIcon").innerHTML="<i class='uil uil-cloud-drizzle fa-5x' style='color:#BABFD'></i>";
+        }
+        else if(status=="Clouds"){
+            document.getElementById("weatherIcon").innerHTML="<i class='uil uil-cloud fa-5x' style='color:#395877'></i>";
+        }
+        else{
+            document.getElementById("weatherIcon").innerHTML="<i class='fa-solid fa-sun fa-5x' style='color:#FFCC33'></i>";
+        }
+        
+        const week=["SUN","MON","TUE","WED","THUS","FRI","SAT"];
+        const months=["JAN","FEB","MAR","APR","MAY","JUNE","JULY","AUG","SEP","OCT","NOV","DEC"];
+        let date=new Date();
+        let day=week[date.getDay()];
+        let month=months[date.getMonth()];
+        let today=date.getDate();
+        let hour=date.getHours();
+        let minute=date.getMinutes();
+        let AMorPM = "AM"; 
+        if(hour>12) AMorPM="PM";
+        if(hour>12) hour=hour-12;
+        if(hour<10) hour="0"+hour;
+        
+        console.log(day+" "+month+" "+today+" "+hour+" "+minute);
+        document.getElementById("date").innerHTML=day+" | "+month +" "+today+" | "+hour+":"+minute+" "+AMorPM;
+     </script>
+</body>
+</html>
