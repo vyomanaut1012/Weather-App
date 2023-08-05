@@ -28,8 +28,9 @@ const server=http.createServer((req,res)=>{
            console.log(realTimeData);
            res.write(realTimeData);
         // //    console.log(realTimeData);
-        // // res.write(realTimeData);
-         })
+        // 	hello this is from my git change
+		// res.write(realTimeData);
+	         })
         .on('end', (err)=>{
           if (err) return console.log('connection closed due to errors', err);   
           res.end();  
@@ -37,5 +38,4 @@ const server=http.createServer((req,res)=>{
         });
     }
 });server.listen(7000,()=>{
-    console.log(`connected successfully with port 7000`)
-});
+    console.log(`connected successfully with port 7000)
